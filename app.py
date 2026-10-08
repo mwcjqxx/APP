@@ -166,7 +166,7 @@ with left_col:
     st.markdown("<div class='section-title'>Variables</div>", unsafe_allow_html=True)
 
     gender = st.radio(
-        'Gender', options=[0, 1], format_func=lambda x: 'Male' if x == 1 else 'Female',
+        'Sex', options=[0, 1], format_func=lambda x: 'Male' if x == 1 else 'Female',
         index=int(F['Gender']['default']), horizontal=True)
     age = st.number_input('Age (years)', value=int(F['Age']['default']), step=1)
     muscle = st.number_input('Muscle mass, DXA (g)',

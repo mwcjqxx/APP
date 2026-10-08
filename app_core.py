@@ -104,7 +104,7 @@ def risk_band(prob: float, threshold: float) -> str:
 
 def _label(nm, v):
     if nm == 'Gender':
-        return 'Gender = %d' % int(round(v))
+        return 'Sex = %d' % int(round(v))
     return '%s = %.2f' % (nm, v)
 
 def fig_force_plot(sv: pd.Series, base: float, fx: float, values: dict,
@@ -175,7 +175,8 @@ def fig_force_plot(sv: pd.Series, base: float, fx: float, values: dict,
     for xc, lab, w_in, i in sorted(over, key=lambda t: t[0]):
         if place(xc, lab, w_in):
             continue
-        short = str(sv.index[i])
+        nm_i = str(sv.index[i])
+        short = 'Sex' if nm_i == 'Gender' else nm_i
         place(xc, short, tw(short))
 
     ax.set_yticks([])
